@@ -193,7 +193,7 @@
                                       <Component id="jScrollPane1" min="-2" pref="588" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
+                              <EmptySpace pref="66" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -345,7 +345,7 @@
                                       <Component id="gesCli_btnGuardar" min="-2" pref="108" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="96" max="32767" attributes="0"/>
+                              <EmptySpace pref="270" max="32767" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
@@ -445,8 +445,8 @@
         <Container class="javax.swing.JPanel" name="PnlGesCuen">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Gestion Cuentas">
-                <Property name="tabTitle" type="java.lang.String" value="Gestion Cuentas"/>
+              <JTabbedPaneConstraints tabName="Gestion de Productos">
+                <Property name="tabTitle" type="java.lang.String" value="Gestion de Productos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -461,7 +461,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="Spn_GesCl1" min="-2" pref="347" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -474,195 +474,6 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="gesCli_Ingreso1">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Crear">
-                        <Property name="tabTitle" type="java.lang.String" value="Crear"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jcbtipocuenta" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtcicuentas" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cbestado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtsaldoinicial" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="96" max="32767" attributes="0"/>
-                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                      <Component id="gesCli_btnGuardar1" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Component id="btnnuevocuenta" min="-2" pref="82" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtcicuentas" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jcbtipocuenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtsaldoinicial" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cbestado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="gesCli_btnGuardar1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="btnnuevocuenta" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="51" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel18">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Cedula:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtcicuentas">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel19">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Tipo:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="jcbtipocuenta">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="2">
-                            <StringItem index="0" value="AHO"/>
-                            <StringItem index="1" value="COR"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel21">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Saldo:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtsaldoinicial">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel22">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Estado:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JComboBox" name="cbestado">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="2">
-                            <StringItem index="0" value="ACT"/>
-                            <StringItem index="1" value="INA"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="gesCli_btnGuardar1">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Gill Sans MT" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Guardar"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gesCli_btnGuardar1ActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnnuevocuenta">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Gill Sans MT" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Nuevo"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnuevocuentaActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel28">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Gill Sans MT" size="18" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="REGISTRO DE CUENTA"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel20">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Ventanas/movi.png"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
                 <Container class="javax.swing.JPanel" name="gesCli_Mod1">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -714,22 +525,14 @@
                                               <Component id="btnbuscar" min="-2" pref="109" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="187" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                                      <Component id="btnguardamodificado" min="-2" pref="146" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                              <Component id="btnguardamodificado" min="-2" pref="146" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="384" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -738,9 +541,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtbuscarmodiiii" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -778,7 +579,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnguardamodificado" min="-2" pref="41" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -799,14 +600,14 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel15">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Codigo:"/>
+                        <Property name="text" type="java.lang.String" value="Nombre:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtcodigoblo">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel29">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Cedula:"/>
+                        <Property name="text" type="java.lang.String" value="Estado:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtcicuentas1">
@@ -820,7 +621,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel31">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Saldo:"/>
+                        <Property name="text" type="java.lang.String" value="Precio:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtsaldoinicial1">
@@ -830,7 +631,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel32">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Estado:"/>
+                        <Property name="text" type="java.lang.String" value="Cantidad:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtestadocamiar">
@@ -848,7 +649,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Ingrese N.- Cedula: "/>
+                        <Property name="text" type="java.lang.String" value="Ingrese c&#xf3;digo de barras: "/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel17">
@@ -856,16 +657,220 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Gill Sans MT" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Modificar una Cuenta"/>
+                        <Property name="text" type="java.lang.String" value="Modificar un Producto"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel24">
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="gesCli_Ingreso1">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Crear">
+                        <Property name="tabTitle" type="java.lang.String" value="Crear"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="txtcicuentas" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="txtcicuentas2" min="-2" pref="232" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtsaldoinicial2" alignment="1" min="-2" pref="232" max="-2" attributes="0"/>
+                                                  <Component id="txtsaldoinicial" alignment="1" min="-2" pref="232" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="216" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="cbestado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jcbtipocuenta" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                      <Component id="gesCli_btnGuardar1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Component id="btnnuevocuenta" min="-2" pref="82" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                                      <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="txtcicuentas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtcicuentas2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtsaldoinicial" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtsaldoinicial2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="gesCli_btnGuardar1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                                          <Component id="btnnuevocuenta" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jcbtipocuenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbestado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="64" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel18">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="C&#xf3;digo de barras:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtcicuentas">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel19">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nombre:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="jcbtipocuenta">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel21">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Precio:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtsaldoinicial">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel22">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cantidad:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cbestado">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="ACT"/>
+                            <StringItem index="1" value="INA"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="gesCli_btnGuardar1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Gill Sans MT" size="14" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Guardar"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gesCli_btnGuardar1ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnnuevocuenta">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Gill Sans MT" size="14" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Nuevo"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnnuevocuentaActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel28">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Gill Sans MT" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Cambiar Saldo o Desactivar una cuenta "/>
+                        <Property name="text" type="java.lang.String" value="REGISTRO DE PRODUCTO"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel20">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Ventanas/movi.png"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtcicuentas2">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtsaldoinicial2">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -876,8 +881,8 @@
         <Container class="javax.swing.JPanel" name="PnlConCuen">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Consulta Cuentas">
-                <Property name="tabTitle" type="java.lang.String" value="Consulta Cuentas"/>
+              <JTabbedPaneConstraints tabName="Consulta de Productos">
+                <Property name="tabTitle" type="java.lang.String" value="Consulta de Productos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -921,7 +926,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" alignment="0" pref="749" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" pref="752" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
@@ -974,12 +979,12 @@
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="6" rowCount="0">
-                                <Column editable="true" title="Numero de Cuenta" type="java.lang.Object"/>
-                                <Column editable="true" title="Cliente" type="java.lang.Object"/>
-                                <Column editable="true" title="Cedula" type="java.lang.Object"/>
-                                <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                                <Column editable="true" title="Saldo" type="java.lang.Object"/>
+                                <Column editable="true" title="C&#xf3;digo de barras" type="java.lang.Object"/>
+                                <Column editable="true" title="Nombre" type="java.lang.Object"/>
+                                <Column editable="true" title="Stock" type="java.lang.Object"/>
+                                <Column editable="true" title="Precio" type="java.lang.Object"/>
                                 <Column editable="true" title="Estado" type="java.lang.Object"/>
+                                <Column editable="true" title="Disponibilidad" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1025,7 +1030,7 @@
                     </Container>
                     <Component class="javax.swing.JLabel" name="jLabel33">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Ingrese N.- Cedula: "/>
+                        <Property name="text" type="java.lang.String" value="Ingrese c&#xf3;digo de barras: "/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1037,8 +1042,8 @@
         <Container class="javax.swing.JPanel" name="PnlRegMov">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Registro de Movimientos">
-                <Property name="tabTitle" type="java.lang.String" value="Registro de Movimientos"/>
+              <JTabbedPaneConstraints tabName="Registro de Ventas">
+                <Property name="tabTitle" type="java.lang.String" value="Registro de Ventas"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1046,19 +1051,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="749" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="752" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="94" max="32767" attributes="0"/>
                           <Component id="PnlRegMov2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="349" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="406" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1076,43 +1081,62 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                          <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                                  <Component id="txtmontomovi" min="-2" pref="149" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jLabel14" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cmbtipo_mov" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtnum_cuenta" min="-2" pref="205" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jButton1" min="-2" pref="128" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="txtmontomovi" min="-2" pref="149" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel14" min="-2" pref="17" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="txtmontomovi2" min="-2" pref="149" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel37" min="-2" pref="17" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="txtmontomovi1" min="-2" pref="149" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabel24" min="-2" pref="17" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="cmbtipo_mov" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtnum_cuenta" min="-2" pref="205" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
-                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
-                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="128" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1142,9 +1166,25 @@
                               </Group>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtmontomovi1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel24" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtmontomovi2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel37" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
-                          <EmptySpace pref="82" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1194,7 +1234,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel26">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Numero de Cuenta: "/>
+                    <Property name="text" type="java.lang.String" value="Numero de venta: "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnum_cuenta">
@@ -1212,7 +1252,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Gill Sans MT" size="18" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="REGISTRO DE MOVIMIENTO"/>
+                    <Property name="text" type="java.lang.String" value="REGISTRO DE VENTAS"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel23">
@@ -1222,6 +1262,42 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLabel35">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="IVA:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel36">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtmontomovi1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="txtmonto_mov" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtmontomovi2">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="txtmonto_mov" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="$"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel37">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="$"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -1229,8 +1305,8 @@
         <Container class="javax.swing.JPanel" name="PnlConMov">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Consulta Movimientos">
-                <Property name="tabTitle" type="java.lang.String" value="Consulta Movimientos"/>
+              <JTabbedPaneConstraints tabName="Consulta de Ventas">
+                <Property name="tabTitle" type="java.lang.String" value="Consulta de Ventas"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1339,7 +1415,7 @@
                       <Component id="btnConsultasMovimientos" min="-2" pref="33" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="137" max="-2" attributes="0"/>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1347,7 +1423,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lbl_con_movi">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cuenta "/>
+                <Property name="text" type="java.lang.String" value="Codigo Venta:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -1363,7 +1439,7 @@
                       <Table columnCount="5" rowCount="0">
                         <Column editable="true" title="Fecha" type="java.lang.Object"/>
                         <Column editable="true" title="Concepto" type="java.lang.Object"/>
-                        <Column editable="true" title="Tipo" type="java.lang.Object"/>
+                        <Column editable="true" title="Estado" type="java.lang.Object"/>
                         <Column editable="true" title="Monto" type="java.lang.Object"/>
                         <Column editable="true" title="Saldo" type="java.lang.Object"/>
                       </Table>
@@ -1421,12 +1497,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Busqueda por los ultimos movimientos:"/>
+                <Property name="text" type="java.lang.String" value="Busqueda por los ultimas ventas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Numeros de Movimientos:"/>
+                <Property name="text" type="java.lang.String" value="Numero de Ventas:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtnumero_mov">

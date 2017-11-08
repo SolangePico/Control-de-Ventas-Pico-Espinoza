@@ -3,7 +3,8 @@ import javax.swing.JOptionPane;
 import com.espe.edu.ec.Clases.ConexionMySql;
 /**
  *
- * @author jhona
+ * @author Solange
+ * @author Victoria 
  */
 public class Login extends javax.swing.JFrame {
     public Login() {
