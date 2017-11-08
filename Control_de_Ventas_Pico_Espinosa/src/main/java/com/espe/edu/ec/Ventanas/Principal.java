@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author solange
+ * @author Solange
+ * @author Victoria 
  */
 public class Principal extends javax.swing.JFrame {
 

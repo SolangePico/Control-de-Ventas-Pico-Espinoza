@@ -7,7 +7,8 @@ package com.espe.edu.ec.Clases;
 
 /**
  *
- * @author solan
+ * @author Solange
+ * @author Victoria 
  */
 public class Cliente {
     
