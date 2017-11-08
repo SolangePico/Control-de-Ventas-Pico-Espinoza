@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.espe.edu.ec.control_de_ventas_pico_espinosa;
+package com.espe.edu.ec.Principal;
 
 /**
  *
