@@ -1,0 +1,65 @@
+drop table if exists CLIENTE;
+
+drop table if exists COMPRA;
+
+drop table if exists PRODUCTO;
+
+/*==============================================================*/
+/* Table: CLIENTE                                               */
+/*==============================================================*/
+create table CLIENTE
+(
+   CLI_CEDULA           varchar(10) not null,
+   CLI_APELLIDOPATERNO  varchar(100),
+   CLI_APELLIDOMATERNO  varchar(100),
+   CLI_NOMBRES          varchar(100),
+   CLI_FIJO             numeric(7,0),
+   CLI_CELULAR          numeric(10,0),
+   CLI_DIRECCION        varchar(100),
+   CLI_CORREO           varchar(50),
+   primary key (CLI_CEDULA)
+);
+
+alter table CLIENTE comment 'Entidad que alberga los datos de Cliente. ';
+
+/*==============================================================*/
+/* Table: COMPRA                                                */
+/*==============================================================*/
+create table COMPRA
+(
+   _COM_CODIGO          varchar(10) not null,
+   CLI_CEDULA           varchar(10),
+   PRO_CODIGO           varchar(10),
+   COM_NUMFICHA         numeric(10,0),
+   COM_TIPO             varchar(3),
+   COM_PRECIOTOTAL      numeric(15,2),
+   COM_FECHA            timestamp,
+   primary key (_COM_CODIGO)
+);
+
+alter table COMPRA comment 'Entidad que alberga la informacion de la compra.
+';
+create unique index COMPRA_PK on COMPRA (
+_COM_CODIGO ASC
+);
+/*==============================================================*/
+/* Table: PRODUCTO                                              */
+/*==============================================================*/
+create table PRODUCTO
+(
+   PRO_CODIGO           varchar(10) not null,
+   PRO_SERIE            varchar(10),
+   PRO_MARCA            varchar(50),
+   PRO_PRECIO           numeric(6,2),
+   PRO_DESCRIPCION      varchar(100),
+   PRO_TIPO             varchar(3),
+   primary key (PRO_CODIGO)
+);
+
+alter table PRODUCTO comment 'Entidad que alberga los datos de producto.';
+
+alter table COMPRA add constraint FK_RELATIONSHIP_1 foreign key (CLI_CEDULA)
+      references CLIENTE (CLI_CEDULA) on delete restrict on update restrict;
+
+alter table COMPRA add constraint FK_RELATIONSHIP_2 foreign key (PRO_CODIGO)
+      references PRODUCTO (PRO_CODIGO) on delete restrict on update restrict;
