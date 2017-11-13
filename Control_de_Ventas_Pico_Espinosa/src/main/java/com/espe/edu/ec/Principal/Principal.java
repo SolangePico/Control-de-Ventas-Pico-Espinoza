@@ -5,6 +5,8 @@
  */
 package com.espe.edu.ec.Principal;
 
+import com.espe.edu.ec.Ventanas.Programa;
+
 /**
  *
  * @author solan
@@ -16,6 +18,8 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Programa l = new Programa();
+        l.show();
         System.out.println("Inicio del proyectpo");
     }
     

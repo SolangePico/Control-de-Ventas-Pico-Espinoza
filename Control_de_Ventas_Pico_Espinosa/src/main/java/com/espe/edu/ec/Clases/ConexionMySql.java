@@ -28,7 +28,7 @@ public class ConexionMySql {
     public Connection conexionmySQL() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistemabancario", "root", "1234");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/control_de_ventas_pico_espinosa", "root", "1234");
             System.out.println("conexion establecida");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("error de conexion");
@@ -37,36 +37,25 @@ public class ConexionMySql {
         return con;
     }
 
-    public String buscarUsuario(String numero, String pass) {
-        String sql, tipo = "";
-        Connection reg = conexionmySQL();
-        try {
-            sql = "select nombre_usu FROM USUARIO "
-                    + "WHERE cod_usuario='" + numero + "' AND clave = '" + pass + "'";
-            PreparedStatement pst = reg.prepareStatement(sql);
-            ResultSet resul = pst.executeQuery();
-            while (resul.next()) {
-                tipo = resul.getString(1);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return tipo;
-    }
-
     public String buscarCliente(String CI) {
         Connection reg = conexionmySQL();
-        String sql, ci = "", nom = "";
+        String sql, ci = "", nom = "", ape = "", apemate = "", fijo="", celu = "", direc = "", correo = "";
         String ans = "No existe registro";
         try {
 
-            sql = "select * FROM CLIENTE where cedula = '" + CI + "'";
+            sql = "select * FROM CLIENTE where cli_cedula = '" + CI + "'";
             PreparedStatement pst = reg.prepareStatement(sql);
             ResultSet resul = pst.executeQuery();
             while (resul.next()) {
                 ci = resul.getString(1);
                 nom = resul.getString(2);
-                ans = ci + " " + nom;
+                ape = resul.getString(3);
+                apemate = resul.getString(4);
+                fijo = resul.getString(5);
+                celu = resul.getString(6);
+                direc = resul.getString(7);
+                correo = resul.getString(8);
+                ans = ci + " " + nom + " " + ape + " " + apemate + " " + fijo + " " + celu + " " + direc + " " + correo;
             }
         } catch (SQLException error) {
             System.out.println("Existe un ERROR: " + error);
@@ -74,12 +63,18 @@ public class ConexionMySql {
         return ans;
     }
 
-    public void IngresoClientes(String ci, String nombre, String apellido) {
+    public void IngresoClientes(String ci, String nombre, String apellido, String apellidoMate, String fijo, String celu, String direccion, String correo) {
         Connection reg = conexionmySQL();
         try {
             //SELECCIONO LAS SENTENCIAS DE SQL--------------
-            PreparedStatement sentencia = reg.prepareStatement("INSERT INTO cliente VALUES (?,?)");
-            sentencia.setString(2, nombre + " " + apellido);
+            PreparedStatement sentencia = reg.prepareStatement("INSERT INTO cliente VALUES (?,?,?,?,?,?,?,?)");
+            sentencia.setString(8, correo);
+            sentencia.setString(7, direccion);
+            sentencia.setString(6, celu);
+            sentencia.setString(5, fijo);
+            sentencia.setString(4, nombre);
+            sentencia.setString(3, apellidoMate);
+            sentencia.setString(2, apellido);
             sentencia.setString(1, ci);
             //Este metodo actualiza y si afecta a mas de una columna se pone de 1 a mas
             int res = sentencia.executeUpdate();
@@ -97,14 +92,20 @@ public class ConexionMySql {
     public DefaultTableModel cargarDatosCliente(DefaultTableModel modeloCliente) {
         int cont1 = 1;
         Connection reg = conexionmySQL();
-        Object[] tcliente = new Object[3];
+        Object[] tcliente = new Object[9];
         try {
             Statement sentenciaSQL = reg.createStatement();
             ResultSet p = sentenciaSQL.executeQuery("select * from CLIENTE");
             while (p.next()) {
                 tcliente[0] = cont1;
-                tcliente[1] = p.getString("cedula");
-                tcliente[2] = p.getString("nombre");
+                tcliente[1] = p.getString("cli_cedula");
+                tcliente[2] = p.getString("cli_nombres");
+                tcliente[3] = p.getString("cli_apellidopaterno");
+                tcliente[4] = p.getString("cli_apellidomaterno");
+                tcliente[5] = p.getString("cli_fijo");
+                tcliente[6] = p.getString("cli_celular");
+                tcliente[7] = p.getString("cli_direccion");
+                tcliente[8] = p.getString("cli_correo");
                 modeloCliente.addRow(tcliente);
                 cont1 = cont1 + 1;
             }
@@ -143,7 +144,7 @@ public class ConexionMySql {
         int val = 0;
         Connection reg = conexionmySQL();
         try {
-            PreparedStatement sentencia = reg.prepareStatement("DELETE FROM CLIENTE WHERE cedula= ?");
+            PreparedStatement sentencia = reg.prepareStatement("DELETE FROM CLIENTE WHERE cli_cedula= ?");
             sentencia.setString(1, codigo);
             sentencia.execute();
             sentencia.close();
@@ -155,16 +156,36 @@ public class ConexionMySql {
         return val;
     }
 
-    public int modificarCliente(String cedula, String Nnombre) {
+    public int modificarCliente(String cedula, String fijo) {
         int val = 0;
         Connection reg = conexionmySQL();
         try {
-            PreparedStatement sentencia = reg.prepareStatement("UPDATE CLIENTE SET nombre= ? WHERE cedula= ?");
-            sentencia.setString(1, Nnombre);
+            PreparedStatement sentencia = reg.prepareStatement("UPDATE CLIENTE SET cli_fijo= ? WHERE cli_cedula= ?");
+            sentencia.setString(1, fijo);
             sentencia.setString(2, cedula);
             sentencia.execute();
             sentencia.close();
-            System.out.println("Se ha modificado: " + cedula + " a: " + Nnombre);
+            System.out.println("Se ha modificado: " + cedula + " a: " + fijo);
+            val = 1;
+        } catch (SQLException error) {
+            System.out.println("Existe un ERROR: " + error);
+        }
+        return val;
+    }
+    
+    public int modificarCliente1(String cedula, String fijo, String celu, String dire, String correo) {
+        int val = 0;
+        Connection reg = conexionmySQL();
+        try {
+            PreparedStatement sentencia = reg.prepareStatement("UPDATE CLIENTE SET cli_fijo= ?, cli_celular = ?, cli_direccion = ?, cli_correo = ? WHERE cli_cedula= ?");
+            sentencia.setString(1, fijo);
+            sentencia.setString(2, celu);
+            sentencia.setString(3, dire);
+            sentencia.setString(4, correo);  
+            sentencia.setString(5, cedula);
+            sentencia.execute();
+            sentencia.close();
+            //System.out.println("Se ha modificado: " + cedula + " a: " + nombre);
             val = 1;
         } catch (SQLException error) {
             System.out.println("Existe un ERROR: " + error);
