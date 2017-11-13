@@ -151,6 +151,7 @@ public class Programa extends javax.swing.JFrame {
         gesCli_txCelular = new javax.swing.JTextField();
         gesCli_txDireccion = new javax.swing.JTextField();
         gesCli_txCorreo = new javax.swing.JTextField();
+        gesCli_btnGuardar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -265,6 +266,14 @@ public class Programa extends javax.swing.JFrame {
 
         jLabel9.setText("Correo:");
 
+        gesCli_btnGuardar1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        gesCli_btnGuardar1.setText("Nuevo");
+        gesCli_btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gesCli_btnGuardar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout gesCli_IngresoLayout = new javax.swing.GroupLayout(gesCli_Ingreso);
         gesCli_Ingreso.setLayout(gesCli_IngresoLayout);
         gesCli_IngresoLayout.setHorizontalGroup(
@@ -288,6 +297,8 @@ public class Programa extends javax.swing.JFrame {
                 .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                         .addComponent(gesCli_btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gesCli_btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                         .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -346,7 +357,9 @@ public class Programa extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(gesCli_txCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(gesCli_btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gesCli_btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gesCli_btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -455,6 +468,18 @@ public class Programa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_gesCli_btnGuardarActionPerformed
 
+    private void gesCli_btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gesCli_btnGuardar1ActionPerformed
+        // TODO add your handling code here:
+        gesCli_txCedula.setText("");
+        gesCli_txNombre.setText("");
+        gesCli_txApellido.setText("");
+        gesCli_txApellidoMaterno.setText("");
+        gesCli_txTeleFijo.setText("");
+        gesCli_txCelular.setText("");
+        gesCli_txDireccion.setText("");
+        gesCli_txCorreo.setText("");
+    }//GEN-LAST:event_gesCli_btnGuardar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -500,6 +525,7 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JButton gesCli_btnBuscar;
     private javax.swing.JButton gesCli_btnEliminar;
     private javax.swing.JButton gesCli_btnGuardar;
+    private javax.swing.JButton gesCli_btnGuardar1;
     private javax.swing.JButton gesCli_btnModificar;
     private javax.swing.JTextField gesCli_txApellido;
     private javax.swing.JTextField gesCli_txApellidoMaterno;
