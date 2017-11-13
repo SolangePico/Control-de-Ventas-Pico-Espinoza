@@ -151,27 +151,6 @@ public class Programa extends javax.swing.JFrame {
         gesCli_txCelular = new javax.swing.JTextField();
         gesCli_txDireccion = new javax.swing.JTextField();
         gesCli_txCorreo = new javax.swing.JTextField();
-        Spn_GesCl1 = new javax.swing.JTabbedPane();
-        gesCli_Ingreso1 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        txtcicuentas = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        txtsaldoinicial = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        cbestado = new javax.swing.JComboBox<>();
-        gesCli_btnGuardar1 = new javax.swing.JButton();
-        btnnuevocuenta = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        txtsaldoinicial1 = new javax.swing.JTextField();
-        gesCli_Mod1 = new javax.swing.JPanel();
-        btnbuscar = new javax.swing.JButton();
-        txtbuscarmodiiii = new javax.swing.JTextField();
-        btnguardamodificado = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -386,177 +365,6 @@ public class Programa extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gestion de Clientes", PnlGestClien);
 
-        Spn_GesCl1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-
-        jLabel18.setText("Codigo de Barras:");
-
-        jLabel21.setText("Nombre:");
-
-        jLabel22.setText("Estado:");
-
-        cbestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACT", "INA" }));
-
-        gesCli_btnGuardar1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        gesCli_btnGuardar1.setText("Guardar");
-        gesCli_btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gesCli_btnGuardar1ActionPerformed(evt);
-            }
-        });
-
-        btnnuevocuenta.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        btnnuevocuenta.setText("Nuevo");
-        btnnuevocuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnuevocuentaActionPerformed(evt);
-            }
-        });
-
-        jLabel28.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel28.setText("REGISTRO DE PRODUCTO");
-
-        jLabel23.setText("Cantidad:");
-
-        javax.swing.GroupLayout gesCli_Ingreso1Layout = new javax.swing.GroupLayout(gesCli_Ingreso1);
-        gesCli_Ingreso1.setLayout(gesCli_Ingreso1Layout);
-        gesCli_Ingreso1Layout.setHorizontalGroup(
-            gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(gesCli_btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnnuevocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel28)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel22))
-                .addGap(18, 18, 18)
-                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addComponent(cbestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtsaldoinicial1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtsaldoinicial, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcicuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
-                        .addGap(79, 79, 79))))
-        );
-        gesCli_Ingreso1Layout.setVerticalGroup(
-            gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel28)
-                .addGap(18, 18, 18)
-                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcicuentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(txtsaldoinicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel23)
-                            .addComponent(txtsaldoinicial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel22)
-                            .addComponent(cbestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))
-                    .addComponent(jLabel20))
-                .addGap(52, 52, 52)
-                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gesCli_btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnnuevocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(114, Short.MAX_VALUE))
-        );
-
-        Spn_GesCl1.addTab("Crear", gesCli_Ingreso1);
-
-        btnbuscar.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        btnbuscar.setText("Buscar");
-        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscarActionPerformed(evt);
-            }
-        });
-
-        btnguardamodificado.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        btnguardamodificado.setText("Guardar Cambios");
-        btnguardamodificado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardamodificadoActionPerformed(evt);
-            }
-        });
-
-        jLabel16.setText("Ingrese Nombre: ");
-
-        jLabel17.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel17.setText("Modificar un Producto");
-
-        jLabel24.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel24.setText("Cambiar Cantidad o Eliminar un Producto ");
-
-        javax.swing.GroupLayout gesCli_Mod1Layout = new javax.swing.GroupLayout(gesCli_Mod1);
-        gesCli_Mod1.setLayout(gesCli_Mod1Layout);
-        gesCli_Mod1Layout.setHorizontalGroup(
-            gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                        .addComponent(txtbuscarmodiiii, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 605, Short.MAX_VALUE))
-            .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                .addGroup(gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel24))
-                    .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(btnguardamodificado, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        gesCli_Mod1Layout.setVerticalGroup(
-            gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gesCli_Mod1Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtbuscarmodiiii, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(189, 189, 189)
-                .addComponent(btnguardamodificado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-
-        Spn_GesCl1.addTab("Modificar", gesCli_Mod1);
-
-        jTabbedPane1.addTab("Gestion de Producto", Spn_GesCl1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -647,64 +455,6 @@ public class Programa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_gesCli_btnGuardarActionPerformed
 
-    private void gesCli_btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gesCli_btnGuardar1ActionPerformed
-        /*if (txtcicuentas.getText().isEmpty() || txtsaldoinicial.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Uno o mas campos vacios :v");
-        } else {
-            try {
-                con.IngresoCuentas(txtcicuentas.getText(), jcbtipocuenta.getSelectedItem().toString(), Float.parseFloat(txtsaldoinicial.getText()), cbestado.getSelectedItem().toString());
-                //con.ValidaExistenciasdeCedulas(txtcicuentas.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-    }//GEN-LAST:event_gesCli_btnGuardar1ActionPerformed
-
-    private void btnnuevocuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevocuentaActionPerformed
-        // TODO add your handling code here:
-        //limpiarCuenta();
-    }//GEN-LAST:event_btnnuevocuentaActionPerformed
-
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        // TODO add your handling code here:
-        //DefaultTableModel model = (DefaultTableModel) tablaCuentaModi.getModel();
-        /*ArrayList<Cuenta> data = new ArrayList<Cuenta>();
-        String i = "";
-        if (txtbuscarmodiiii.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Ingresa un valor");
-        } else {
-            System.out.println("hola");
-            try {
-                data = con.datos(Integer.parseInt(txtbuscarmodiiii.getText()), 2);
-                for (Cuenta c : data) {
-                    txtcodigoblo.setText(String.valueOf(c.getCodigo()));
-                    txtcicuentas1.setText(c.getCi());
-                    txttipo.setText(c.getTipo());
-                    txtsaldoinicial1.setText(String.valueOf(c.getSaldo()));
-                    txtestadocamiar.setText(c.getEstado());
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        txtcodigoblo.setEditable(false);
-        txtcicuentas1.setEditable(false);
-        txttipo.setEditable(false);*/
-    }//GEN-LAST:event_btnbuscarActionPerformed
-
-    private void btnguardamodificadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardamodificadoActionPerformed
-        // TODO add your handling code here:
-        /*if (txtsaldoinicial1.getText().isEmpty() || txtestadocamiar.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Uno o mas campos vacios :v");
-        } else {
-            try {
-                con.cambiarcuenta((txtcicuentas1.getText()), Float.parseFloat(txtsaldoinicial1.getText()), txtestadocamiar.getText());
-            } catch (SQLException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-    }//GEN-LAST:event_btnguardamodificadoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -744,20 +494,12 @@ public class Programa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PnlGestClien;
     private javax.swing.JTabbedPane Spn_GesCl;
-    private javax.swing.JTabbedPane Spn_GesCl1;
-    private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnguardamodificado;
-    private javax.swing.JButton btnnuevocuenta;
     public javax.swing.JTable c;
-    private javax.swing.JComboBox<String> cbestado;
     private javax.swing.JPanel gesCli_Ingreso;
-    private javax.swing.JPanel gesCli_Ingreso1;
-    private javax.swing.JPanel gesCli_Mod1;
     private javax.swing.JPanel gesCli_Visualizar;
     private javax.swing.JButton gesCli_btnBuscar;
     private javax.swing.JButton gesCli_btnEliminar;
     private javax.swing.JButton gesCli_btnGuardar;
-    private javax.swing.JButton gesCli_btnGuardar1;
     private javax.swing.JButton gesCli_btnModificar;
     private javax.swing.JTextField gesCli_txApellido;
     private javax.swing.JTextField gesCli_txApellidoMaterno;
@@ -771,16 +513,7 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -790,9 +523,5 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField txtbuscarmodiiii;
-    private javax.swing.JTextField txtcicuentas;
-    private javax.swing.JTextField txtsaldoinicial;
-    private javax.swing.JTextField txtsaldoinicial1;
     // End of variables declaration//GEN-END:variables
 }
