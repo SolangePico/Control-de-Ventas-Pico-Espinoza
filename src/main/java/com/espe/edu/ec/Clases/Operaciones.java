@@ -61,15 +61,14 @@ public class Operaciones {
         return cedulaCorrecta;
     }
 
-    public float transaccion(float saldo, float monto) {
-        float nsaldo;
-        nsaldo = saldo + monto;
-        if (nsaldo < 0) {
+    public float transaccion(float cantidad, float retiro) {
+        float ncantidad;
+        ncantidad = cantidad + retiro;
+        if (ncantidad < 0) {
             return -1;
         } else {
-            return nsaldo;
+            return ncantidad;
         }
-
     }
 
     private boolean ValidarAnio(int anio) {

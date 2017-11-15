@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,6 +38,7 @@ public class Programa extends javax.swing.JFrame {
         initComponents();
         cargar();
         ValidacionTipeo();
+        FechayHora();
     }
 
     public void cargar() {
@@ -63,6 +65,18 @@ public class Programa extends javax.swing.JFrame {
         txprecio.setText("");
     }
     
+    public void FechayHora() {
+        Calendar cal = Calendar.getInstance();
+        int mes = cal.get(Calendar.MONTH) + 1;
+        fecha = cal.get(Calendar.YEAR) + "-" + mes + "-" + cal.get(Calendar.DATE);
+        hora = cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
+        lblFecha.setText(fecha);
+
+        lblHora.setText(hora);
+        /*lblHora.hide();
+        jLabel45.hide();*/
+    }
+     
     public void ValidacionTipeo() {
         gesCli_txCedula.addKeyListener(new KeyListener() {
             @Override
@@ -210,6 +224,45 @@ public class Programa extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         txcodigocam = new javax.swing.JTextField();
+        PnlRegMov2 = new javax.swing.JPanel();
+        txtcantidadcompra = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        cmbtipocompra = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        txnumseriecompra = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        txpreciocompra = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        txcicliente = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        txnumficha = new javax.swing.JTextField();
+        PnlConMov = new javax.swing.JPanel();
+        lbl_con_movi = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabla_movimientos_consulta = new javax.swing.JTable();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        txtnumero_mov = new javax.swing.JTextField();
+        btnConsultasMovimientos = new javax.swing.JButton();
+        txtcuenta_mov = new javax.swing.JComboBox<>();
+        cmbanio_mov = new javax.swing.JComboBox<>();
+        cmbmes_mov = new javax.swing.JComboBox<>();
+        cmbdia_mov = new javax.swing.JComboBox<>();
+        cmb2anio_mov = new javax.swing.JComboBox<>();
+        cmb2mes_mov = new javax.swing.JComboBox<>();
+        cmb2dia_mov = new javax.swing.JComboBox<>();
+        fecha1 = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -275,7 +328,7 @@ public class Programa extends javax.swing.JFrame {
                                 .addComponent(gesCli_btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(90, 90, 90)
                                 .addComponent(gesCli_btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 540, Short.MAX_VALUE)))
+                        .addGap(0, 433, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         gesCli_VisualizarLayout.setVerticalGroup(
@@ -339,7 +392,7 @@ public class Programa extends javax.swing.JFrame {
             .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                 .addGap(204, 204, 204)
                 .addComponent(jLabel4)
-                .addContainerGap(686, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
             .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,7 +517,7 @@ public class Programa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel33)
@@ -575,7 +628,7 @@ public class Programa extends javax.swing.JFrame {
                         .addComponent(gesCli_btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(btnnuevocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(633, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
         gesCli_Ingreso1Layout.setVerticalGroup(
             gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,7 +731,7 @@ public class Programa extends javax.swing.JFrame {
                                 .addComponent(txtbuscarmodiiii, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 596, Short.MAX_VALUE))
+                        .addGap(0, 489, Short.MAX_VALUE))
                     .addGroup(gesCli_Mod1Layout.createSequentialGroup()
                         .addGroup(gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
@@ -700,7 +753,7 @@ public class Programa extends javax.swing.JFrame {
             .addGroup(gesCli_Mod1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addComponent(btnguardamodificado, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 772, Short.MAX_VALUE))
+                .addGap(0, 665, Short.MAX_VALUE))
         );
         gesCli_Mod1Layout.setVerticalGroup(
             gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,20 +801,295 @@ public class Programa extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gestion de Productos", Spn_GesCl1);
 
+        txtcantidadcompra.setName("txtmonto_mov"); // NOI18N
+
+        jLabel25.setText("Tipo: ");
+
+        jLabel27.setText("Cantidad:");
+
+        cmbtipocompra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Contado", "Credito" }));
+        cmbtipocompra.setName("cmbtipocompra"); // NOI18N
+
+        jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jButton1.setText("Registrar");
+        jButton1.setName("bntRegistroMov"); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("Numero de Serie: ");
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setText("$");
+
+        jLabel34.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jLabel34.setText("REGISTRO DE COMPRA");
+
+        jLabel41.setText("Precio: ");
+
+        jLabel42.setText("C.I. Cliente:");
+
+        txcicliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txciclienteActionPerformed(evt);
+            }
+        });
+
+        jLabel43.setText("N- Ficha:");
+
+        javax.swing.GroupLayout PnlRegMov2Layout = new javax.swing.GroupLayout(PnlRegMov2);
+        PnlRegMov2.setLayout(PnlRegMov2Layout);
+        PnlRegMov2Layout.setHorizontalGroup(
+            PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(jLabel34))
+                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                        .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel42)
+                            .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                                .addComponent(jLabel41)
+                                .addGap(75, 75, 75)
+                                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtcantidadcompra)
+                                    .addComponent(txpreciocompra, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
+                        .addComponent(jLabel35)
+                        .addGap(136, 136, 136))
+                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                        .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel43))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbtipocompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txnumseriecompra)
+                            .addComponent(txcicliente, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(txnumficha))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        PnlRegMov2Layout.setVerticalGroup(
+            PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel34)
+                .addGap(12, 12, 12)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(txnumficha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(txcicliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(txnumseriecompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbtipocompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addGap(25, 25, 25)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(txtcantidadcompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel41)
+                    .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txpreciocompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+        );
+
+        jTabbedPane1.addTab("Registro de Compra", PnlRegMov2);
+
+        lbl_con_movi.setText("N- Serie:");
+
+        Tabla_movimientos_consulta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Fecha", "N- Ficha", "N- Serie", "Cliente", "Cantidad", "Tipo", "Precio"
+            }
+        ));
+        jScrollPane2.setViewportView(Tabla_movimientos_consulta);
+
+        jLabel36.setText("Busqueda por Fechas:");
+
+        jLabel37.setText("De:");
+
+        jLabel38.setText("Hasta:");
+
+        jLabel39.setText("Busqueda por las ulimas compras:");
+
+        jLabel40.setText("Numeros de Compras:");
+
+        txtnumero_mov.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnumero_movActionPerformed(evt);
+            }
+        });
+
+        btnConsultasMovimientos.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        btnConsultasMovimientos.setText("Consultar");
+
+        cmbanio_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003" }));
+
+        cmbmes_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", " " }));
+
+        cmbdia_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", " " }));
+
+        cmb2anio_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003" }));
+
+        cmb2mes_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", " " }));
+
+        cmb2dia_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+
+        javax.swing.GroupLayout PnlConMovLayout = new javax.swing.GroupLayout(PnlConMov);
+        PnlConMov.setLayout(PnlConMovLayout);
+        PnlConMovLayout.setHorizontalGroup(
+            PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlConMovLayout.createSequentialGroup()
+                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PnlConMovLayout.createSequentialGroup()
+                                .addComponent(lbl_con_movi)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtcuenta_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PnlConMovLayout.createSequentialGroup()
+                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel36)
+                                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel37)
+                                            .addComponent(jLabel38))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmb2anio_mov, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cmbanio_mov, 0, 71, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                                        .addComponent(cmbmes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbdia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                                        .addComponent(cmb2mes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cmb2dia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(71, 71, 71)
+                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel39)
+                                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                                        .addComponent(jLabel40)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtnumero_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PnlConMovLayout.setVerticalGroup(
+            PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PnlConMovLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_con_movi)
+                    .addComponent(txtcuenta_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(cmbanio_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbmes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbdia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(cmb2anio_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb2mes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb2dia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PnlConMovLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40)
+                            .addComponent(txtnumero_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Consulta de Compras", PnlConMov);
+
+        fecha1.setText("Fecha: ");
+
+        lblFecha.setText("--/--/----");
+
+        jLabel45.setText("Hora: ");
+
+        lblHora.setText("--:--");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1)
-                .addGap(37, 37, 37))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(fecha1)
+                .addGap(18, 18, 18)
+                .addComponent(lblFecha)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblHora)
+                .addGap(329, 329, 329))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fecha1)
+                    .addComponent(lblFecha)
+                    .addComponent(jLabel45)
+                    .addComponent(lblHora))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1)
-                .addGap(23, 23, 23))
+                .addContainerGap())
         );
 
         pack();
@@ -943,6 +1271,48 @@ public class Programa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConsultarCuentasActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String t = "";
+        /*if (cmbtipo_mov.getSelectedItem().equals("Debito")) {
+            t = "DEB";
+        } else {
+            t = "CRE";
+        }*/
+        String monto = txtcantidadcompra.getText();
+        //float mon = Float.parseFloat(monto);
+        if (txnumseriecompra.getText().equals("") || cmbtipocompra.getSelectedItem().equals("") || txtcantidadcompra.getText().equals("") ||  txcicliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Uno o mas campos vacios");
+        } else {
+            String mon = null;
+            if (Float.parseFloat(mon) > 0) {
+                String respuesta = con.buscarProducto(txnumseriecompra.getText());
+                System.out.println("Respuesta: " + respuesta);
+                if (respuesta.equals(txnumseriecompra.getText())) {
+                    try {
+                        con.IngresoProducto(txnumficha.getText(), txcicliente.getText(), txnumseriecompra.getText(), cmbtipocompra.getSelectedItem().toString(), Double.parseDouble(txtcantidadcompra.getText()), Float.parseFloat(txpreciocompra.getText()), fecha + " " + hora);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Programa.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    recargar();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "La cuenta no existe");
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "El valor debe ser mayor a cero");
+            }
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtnumero_movActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero_movActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnumero_movActionPerformed
+
+    private void txciclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txciclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txciclienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -980,15 +1350,27 @@ public class Programa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PnlConMov;
     private javax.swing.JPanel PnlGestClien;
+    private javax.swing.JPanel PnlRegMov2;
     private javax.swing.JTabbedPane Spn_GesCl;
     private javax.swing.JTabbedPane Spn_GesCl1;
     private javax.swing.JTable Tabla_cuentas_consulta;
+    private javax.swing.JTable Tabla_movimientos_consulta;
     private javax.swing.JButton btnConsultarCuentas;
+    private javax.swing.JButton btnConsultasMovimientos;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnguardamodificado;
     private javax.swing.JButton btnnuevocuenta;
     public javax.swing.JTable c;
+    private javax.swing.JComboBox<String> cmb2anio_mov;
+    private javax.swing.JComboBox<String> cmb2dia_mov;
+    private javax.swing.JComboBox<String> cmb2mes_mov;
+    private javax.swing.JComboBox<String> cmbanio_mov;
+    private javax.swing.JComboBox<String> cmbdia_mov;
+    private javax.swing.JComboBox<String> cmbmes_mov;
+    private javax.swing.JComboBox<String> cmbtipocompra;
+    private javax.swing.JLabel fecha1;
     private javax.swing.JPanel gesCli_Ingreso;
     private javax.swing.JPanel gesCli_Ingreso1;
     private javax.swing.JPanel gesCli_Mod1;
@@ -1008,6 +1390,7 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JTextField gesCli_txDireccion;
     private javax.swing.JTextField gesCli_txNombre;
     private javax.swing.JTextField gesCli_txTeleFijo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1024,6 +1407,10 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -1031,7 +1418,18 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1039,11 +1437,16 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JComboBox<String> jcbtipoproducto;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lbl_con_movi;
     private javax.swing.JTextField txcantidad;
     private javax.swing.JTextField txcantidadcam;
+    private javax.swing.JTextField txcicliente;
     private javax.swing.JTextField txcodigocam;
     private javax.swing.JTextField txdescrip;
     private javax.swing.JTextField txdescripcam;
@@ -1051,10 +1454,16 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JTextField txmarcacam;
     private javax.swing.JTextField txnombreproducto;
     private javax.swing.JTextField txnombreproductocam;
+    private javax.swing.JTextField txnumficha;
+    private javax.swing.JTextField txnumseriecompra;
     private javax.swing.JTextField txprecio;
     private javax.swing.JTextField txpreciocam;
+    private javax.swing.JTextField txpreciocompra;
     private javax.swing.JTextField txserie;
     private javax.swing.JTextField txtbuscarmodiiii;
     private javax.swing.JTextField txtbuscarserie;
+    private javax.swing.JTextField txtcantidadcompra;
+    private javax.swing.JComboBox<String> txtcuenta_mov;
+    private javax.swing.JTextField txtnumero_mov;
     // End of variables declaration//GEN-END:variables
 }

@@ -194,23 +194,20 @@ public class ConexionMySql {
         return val;
     }
 
-    public void IngresoMovimiento(String cod_cuenta, String tipo, String fecha, float monto, float saldo) throws SQLException {
+    public void IngresoProducto(String numficha, String cliente, String numserie, String tipo, float cantidadre, float preciototal, float mon, String fecha) throws SQLException {
         int numRegistros = 0;
         int ultimoRegistro = 0;
-        if (tipo.equals("DEB")) {
-            monto = monto * -1;
-        }
         Connection reg = conexionmySQL();
         Statement sentenciaSQL = reg.createStatement();
         try {
-            ResultSet p = sentenciaSQL.executeQuery("Select count(*) from Movimiento order by cod_movimiento");
+            ResultSet p = sentenciaSQL.executeQuery("Select count(*) from COMPRA order by _COM_CODIGO");
             while (p.next()) {
                 numRegistros = Integer.parseInt(p.getString("count(*)"));
             }
             if (numRegistros != 0) {
-                p = sentenciaSQL.executeQuery("select cod_movimiento from movimiento order by cod_movimiento desc limit 1");
+                p = sentenciaSQL.executeQuery("select _COM_CODIGO from COMPRA order by _COM_CODIGO desc limit 1");
                 while (p.next()) {
-                    ultimoRegistro = p.getInt("cod_movimiento");
+                    ultimoRegistro = p.getInt("_COM_CODIGO");
                 }
             }
             if (ultimoRegistro == 0) {
@@ -218,15 +215,16 @@ public class ConexionMySql {
             }
             System.out.println("Ultimo regirtros = " + ultimoRegistro);
             //SELECCIONO LAS SENTENCIAS DE SQL--------------
-            float nsaldo = op.transaccion(saldo, monto);
-            if (nsaldo != -1) {
+            float ncantidad = op.transaccion(cantidadre, mon);
+            if (ncantidad != -1) {
 
-                PreparedStatement sentencia = reg.prepareStatement("INSERT INTO movimiento VALUES (?,?,?,?,?,?)");
-                sentencia.setFloat(6, nsaldo);
-                sentencia.setFloat(5, monto);
-                sentencia.setString(4, fecha);
-                sentencia.setString(3, tipo);
-                sentencia.setString(2, cod_cuenta);
+                PreparedStatement sentencia = reg.prepareStatement("INSERT INTO COMPRA VALUES (?,?,?,?,?,?,?)");
+                sentencia.setFloat(7, preciototal);
+                sentencia.setFloat(6, cantidadre);
+                sentencia.setString(5, tipo);
+                sentencia.setString(4, numserie);
+                sentencia.setString(3, cliente);
+                sentencia.setString(2, numficha);
                 sentencia.setInt(1, ultimoRegistro + 1);
                 int res = sentencia.executeUpdate();
 
@@ -269,19 +267,19 @@ public class ConexionMySql {
         return modeloMovimiento;
     }
 
-    public String buscarCuenta(String cuenta) {
+    public String buscarProducto(String serie) {
         Connection reg = conexionmySQL();
-        String sql1, sql2, cod_mov = "", cod_cuenta = "", tipo_mov = "", fecha = "", monto = "", saldo = "";
+        String sql1, sql2, cod_mov = "", cod_serie = "", tipo_mov = "", fecha = "", monto = "", saldo = "";
         String ans = "No existe registro";
         try {
-            sql1 = "select * FROM cuenta where COD_CUENTA = '" + cuenta + "'";
+            sql1 = "select * FROM PRODUCTO where PRO_SERIE = '" + serie + "'";
             PreparedStatement pst1 = reg.prepareStatement(sql1);
             ResultSet resul1 = pst1.executeQuery();
 
             while (resul1.next()) {
-                cod_cuenta = resul1.getString(1);
-                ans = cod_cuenta;
-                System.out.println("Se recibio: " + cod_cuenta);
+                cod_serie = resul1.getString(1);
+                ans = cod_serie;
+                System.out.println("Se recibio: " + cod_serie);
             }
         } catch (SQLException error) {
             System.out.println("Existe un ERROR: " + error);
@@ -313,11 +311,11 @@ public class ConexionMySql {
         return ans;
     }
 
-    public float buscarSaldoCuenta(String cuenta) {
+    public float buscarSaldoProducto(String serie) {
         Connection reg = conexionmySQL();
         float saldo = 0;
         try {
-            String sql1 = "select saldo FROM cuenta where COD_CUENTA = '" + cuenta + "'";
+            String sql1 = "select PRO_CANTIDAD FROM PRODUCTO where PRO_SERIE = '" + serie + "'";
             PreparedStatement pst1 = reg.prepareStatement(sql1);
             ResultSet resul1 = pst1.executeQuery();
             while (resul1.next()) {
