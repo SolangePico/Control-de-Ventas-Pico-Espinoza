@@ -116,21 +116,22 @@ public class ConexionMySql {
         return modeloCliente;
     }
 
-    public DefaultTableModel cargarDatosCuenta(DefaultTableModel modeloCliente) {
+    public DefaultTableModel cargarDatosProducto(DefaultTableModel modeloCliente) {
         int cont1 = 1;
         Connection reg = conexionmySQL();
-        Object[] tcliente = new Object[6];
+        Object[] tproducto = new Object[7];
         try {
             Statement sentenciaSQL = reg.createStatement();
-            ResultSet p = sentenciaSQL.executeQuery("select * from CUENTA");
+            ResultSet p = sentenciaSQL.executeQuery("select * from PRODUCTO");
             while (p.next()) {
-                tcliente[0] = cont1;
-                tcliente[1] = p.getString("cod_cuenta");
-                tcliente[2] = p.getString("cedula");
-                tcliente[3] = p.getString("tipo");
-                tcliente[4] = p.getString("saldo");
-                tcliente[5] = p.getString("estado");
-                modeloCliente.addRow(tcliente);
+                tproducto[0] = cont1;
+                tproducto[1] = p.getString("pro_codigo");
+                tproducto[2] = p.getString("pro_serie");
+                tproducto[3] = p.getString("pro_marca");
+                tproducto[4] = p.getString("pro_precio");
+                tproducto[5] = p.getString("pro_descripcion");
+                tproducto[6] = p.getString("pro_tipo");
+                modeloCliente.addRow(tproducto);
                 cont1 = cont1 + 1;
             }
             System.out.println(":'v");
@@ -329,7 +330,54 @@ public class ConexionMySql {
         return saldo;
     }
 
-    public void IngresoCuentas(String cia, String tipo, Float saldo, String estado) throws SQLException {
+    public void IngresoProducto(String serie, String nombre, String marca, String descri, Double cantidad, Float precio, String tipo) throws SQLException {
+        
+        String cod;
+        int numRegistros = 0;
+        int ultimoRegistro = 0;
+        Connection reg = conexionmySQL();
+        Statement sentenciaSQL;
+        sentenciaSQL = con.createStatement();
+        try {
+                ResultSet p = sentenciaSQL.executeQuery("select count(*) from producto order by PRO_CODIGO");
+                while (p.next()) {
+                    numRegistros = p.getInt("count(*)");
+                }
+                if (numRegistros != 0) {
+                    p = sentenciaSQL.executeQuery("Select PRO_CODIGO from PRODUCTO order by PRO_CODIGO+0 desc limit 1");
+                    while (p.next()) {
+                        ultimoRegistro = p.getInt("PRO_CODIGO");
+                    }
+                }
+                if (ultimoRegistro == 0) {
+                    ultimoRegistro = 11111111;
+                }
+                System.out.println("Ultimo Registro: " + ultimoRegistro);
+                PreparedStatement sentencia = reg.prepareStatement("INSERT INTO PRODUCTO VALUES (?,?,?,?,?,?,?,?)");
+                sentencia.setString(8, tipo);
+                sentencia.setFloat(7, precio);
+                sentencia.setDouble(6, cantidad);
+                sentencia.setString(5, descri);
+                sentencia.setString(4, marca);
+                sentencia.setString(3, nombre);
+                sentencia.setString(2, serie);
+                sentencia.setInt(1, ultimoRegistro + 1);
+                //Este metodo actualiza y si afecta a mas de una columna se pone de 1 a mas
+                int res = sentencia.executeUpdate();
+                if (res > 0) {
+                    JOptionPane.showMessageDialog(null, "OK, DATOS GUARDADOS");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERROR, DATOS FALLIDOS");
+                }
+
+            } catch (SQLException ex) {
+                System.out.println("Ultimo Registro: " + ultimoRegistro);
+                System.out.println("Algo Salio mal :(");
+                Logger.getLogger(ConexionMySql.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    /*
+    public void IngresoProducto(String serie, String nombre, String marca, String descri, Double cantidad, Float precio, String tipo) throws SQLException {
 
         String cod;
         int numRegistros = 0;
@@ -337,7 +385,7 @@ public class ConexionMySql {
         Connection reg = conexionmySQL();
         Statement sentenciaSQL;
         sentenciaSQL = con.createStatement();
-        ResultSet p1 = sentenciaSQL.executeQuery("SELECT CEDULA FROM cuenta WHERE CEDULA = '" + cia + "'");
+        ResultSet p1 = sentenciaSQL.executeQuery("SELECT PRO_SERIE FROM PRODUCTO WHERE CEDULA = '" + cia + "'");
         if (buscarCliente(cia).equals("No existe registro")) {
             JOptionPane.showMessageDialog(null, "ADVERTENCIA\nCedula encontrada o no existe:" + cia + "\nIngrese otra cedula o ingrese primero un cliente");
         } else {
@@ -377,22 +425,25 @@ public class ConexionMySql {
             }
         }
     }
-/*
-    public ArrayList datos(long cedula, int tipo) throws SQLException {
-        ArrayList<Cuenta> info = new ArrayList<Cuenta>();
+*/
+    public ArrayList datos(long codigo, int tipo) throws SQLException {
+        ArrayList<Producto> info = new ArrayList<Producto>();
         Statement sentenciaSQL;
         sentenciaSQL = con.createStatement();
         try {
-            ResultSet p = sentenciaSQL.executeQuery("select * from cuenta WHERE cedula= '" + cedula + "'  order by cedula");
+            ResultSet p = sentenciaSQL.executeQuery("select * from PRODUCTO WHERE PRO_SERIE= '" + codigo + "'  order by PRO_SERIE");
             if (p.next() == false) {
             } else {
                 do {
-                    Cuenta c = new Cuenta();
-                    c.setCodigo(p.getInt("COD_CUENTA"));
-                    c.setCi(p.getString("CEDULA"));
-                    c.setTipo(p.getString("TIPO"));
-                    c.setSaldo(p.getFloat("SALDO"));
-                    c.setEstado(p.getString("ESTADO"));
+                    Producto c = new Producto();
+                    c.setCodigo(p.getDouble("PRO_CODIGO"));
+                    c.setSerie(p.getDouble("PRO_SERIE"));
+                    c.setNombre(p.getString("PRO_NOMBRE"));
+                    c.setMarca(p.getString("PRO_MARCA"));
+                    c.setDescripcion(p.getString("PRO_DESCRIPCION"));
+                    c.setCantidad(p.getDouble("PRO_CANTIDAD"));
+                    c.setPrecio(p.getFloat("PRO_PRECIO"));
+                    c.setTipo(p.getString("PRO_TIPO"));
                     info.add(c);
                 } while (p.next());
             }
@@ -401,24 +452,26 @@ public class ConexionMySql {
         }
         return info;
     }
-/*
-    public ArrayList datos2(long cedula, int tipo) throws SQLException {
+    
+    public ArrayList datos2(long serie, int tipo) throws SQLException {
         ArrayList<Producto> info2 = new ArrayList<Producto>();
         Statement sentenciaSQL;
         sentenciaSQL = con.createStatement();
         try {
-            ResultSet p = sentenciaSQL.executeQuery("SELECT E.COD_CUENTA, C.NOMBRE, C.CEDULA, E.TIPO, E.SALDO, E.ESTADO FROM  CLIENTE C, Cuenta E WHERE C.CEDULA = '" + cedula + "' && E.CEDULA = '" + cedula + "'");
+            ResultSet p = sentenciaSQL.executeQuery("SELECT *FROM PRODUCTO WHERE PRO_SERIE = '" + serie + "'");
             if (p.next() == false) {
                 System.out.println("No hay perro :'v ");
             } else {
                 do {
                     Producto c = new Producto();
-                    c.setCodigo(p.getInt("COD_CUENTA"));
-                    c.setCi(p.getString("CEDULA"));
-                    c.setTipo(p.getString("TIPO"));
-                    c.setSaldo(p.getFloat("SALDO"));
-                    c.setEstado(p.getString("ESTADO"));
-                    c.setNombre(p.getString("NOMBRE"));
+                    c.setCodigo(p.getDouble("PRO_CODIGO"));
+                    c.setNombre(p.getString("PRO_NOMBRE"));
+                    c.setSerie(p.getDouble("PRO_SERIE"));
+                    c.setMarca(p.getString("PRO_MARCA"));
+                    c.setDescripcion(p.getString("PRO_DESCRIPCION"));
+                    c.setCantidad(p.getDouble("PRO_CANTIDAD"));
+                    c.setPrecio(p.getFloat("PRO_PRECIO"));
+                    c.setTipo(p.getString("PRO_TIPO"));
                     info2.add(c);
                 } while (p.next());
             }
@@ -451,23 +504,23 @@ public class ConexionMySql {
         }
         return info;
     }
-
-    public void cambiarcuenta(String ced, float saldo, String estado) throws SQLException {
+*/
+    public void cambiarProducto(String ced, String nombre, String marca, String descrip, Double cantidad, float precio) throws SQLException {
 
         Connection reg = conexionmySQL();
         Statement sentenciaSQL;
         sentenciaSQL = con.createStatement();
         try {
-            PreparedStatement sentencia = reg.prepareStatement("UPDATE cuenta SET SALDO ='" + saldo + "' , ESTADO = '" + estado + "' WHERE CEDULA = '" + ced + "';");
+            PreparedStatement sentencia = reg.prepareStatement("UPDATE PRODUCTO SET PRO_NOMBRE ='" + nombre + "' , PRO_MARCA ='" + marca + "' , PRO_DESCRIPCION ='" + descrip + "' , PRO_CANTIDAD ='" + cantidad + "' , PRO_PRECIO ='" + precio + "' WHERE PRO_SERIE = '" + ced + "';");
             sentencia.execute();
             JOptionPane.showMessageDialog(null, "OK, DATOS GUARDADOS");
         } catch (SQLException ex) {
             System.out.println("Algo Salio mal :(");
             JOptionPane.showMessageDialog(null, "ERROR, DATOS FALLIDOS");
-            Logger.getLogger(ConexionMysql.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConexionMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/*
     public void ActSaldo(String cod_cuenta, float nsaldo) {
         Connection reg = conexionmySQL();
         try {
@@ -481,7 +534,7 @@ public class ConexionMySql {
             System.out.println("Existe un ERROR: " + error);
         }
     }
-
+/*
     public ArrayList busmovimiento(long cod_cuenta, int tipo) throws SQLException
     {
         ArrayList<Movimiento> ress = new ArrayList<Movimiento>();
