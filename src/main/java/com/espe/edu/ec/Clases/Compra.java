@@ -16,9 +16,7 @@ public class Compra {
     private Double numFicha;
     private Double cantidadCompra;
     private Float precioTotal;
-    private String años;
-    private String mes;
-    private String dia;
+private String fecha;
 
     public Compra() {
     }
@@ -29,9 +27,7 @@ public class Compra {
         this.numFicha = numFicha;
         this.cantidadCompra = cantidadCompra;
         this.precioTotal = precioTotal;
-        this.años = años;
-        this.mes = mes;
-        this.dia = dia;
+        this.fecha = fecha;
     }
 
     public Double getCodigoCompra() {
@@ -74,27 +70,11 @@ public class Compra {
         this.precioTotal = precioTotal;
     }
 
-    public String getAños() {
-        return años;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setAños(String años) {
-        this.años = años;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }    
 }

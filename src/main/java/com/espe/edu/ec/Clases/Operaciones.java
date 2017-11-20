@@ -61,9 +61,9 @@ public class Operaciones {
         return cedulaCorrecta;
     }
 
-    public float transaccion(float cantidad, float retiro) {
+    public float transaccion(float cantidad, float stock) {
         float ncantidad;
-        ncantidad = cantidad + retiro;
+        ncantidad = cantidad + stock;
         if (ncantidad < 0) {
             return -1;
         } else {

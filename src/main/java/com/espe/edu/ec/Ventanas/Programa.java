@@ -5,6 +5,7 @@
  */
 package com.espe.edu.ec.Ventanas;
 
+import com.espe.edu.ec.Clases.Compra;
 import com.espe.edu.ec.Clases.ConexionMySql;
 import com.espe.edu.ec.Clases.Operaciones;
 import com.espe.edu.ec.Clases.Producto;
@@ -77,6 +78,14 @@ public class Programa extends javax.swing.JFrame {
         jLabel45.hide();*/
     }
      
+    public void vaciarMovimiento(){
+        DefaultTableModel modelotc = (DefaultTableModel) Tabla_compras_consulta.getModel();
+        int ntc = modelotc.getRowCount();
+        for (int i = 0; i < ntc; i++) {
+            modelotc.removeRow(0);
+        } 
+    }
+    
     public void ValidacionTipeo() {
         gesCli_txCedula.addKeyListener(new KeyListener() {
             @Override
@@ -244,25 +253,15 @@ public class Programa extends javax.swing.JFrame {
         PnlConMov = new javax.swing.JPanel();
         lbl_con_movi = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Tabla_movimientos_consulta = new javax.swing.JTable();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        txtnumero_mov = new javax.swing.JTextField();
+        Tabla_compras_consulta = new javax.swing.JTable();
         btnConsultasMovimientos = new javax.swing.JButton();
-        txtcuenta_mov = new javax.swing.JComboBox<>();
-        cmbanio_mov = new javax.swing.JComboBox<>();
-        cmbmes_mov = new javax.swing.JComboBox<>();
-        cmbdia_mov = new javax.swing.JComboBox<>();
-        cmb2anio_mov = new javax.swing.JComboBox<>();
-        cmb2mes_mov = new javax.swing.JComboBox<>();
-        cmb2dia_mov = new javax.swing.JComboBox<>();
+        txtConsCompra = new javax.swing.JTextField();
         fecha1 = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -328,7 +327,7 @@ public class Programa extends javax.swing.JFrame {
                                 .addComponent(gesCli_btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(90, 90, 90)
                                 .addComponent(gesCli_btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 433, Short.MAX_VALUE)))
+                        .addGap(0, 485, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         gesCli_VisualizarLayout.setVerticalGroup(
@@ -392,7 +391,7 @@ public class Programa extends javax.swing.JFrame {
             .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                 .addGap(204, 204, 204)
                 .addComponent(jLabel4)
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(631, Short.MAX_VALUE))
             .addGroup(gesCli_IngresoLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,7 +470,7 @@ public class Programa extends javax.swing.JFrame {
                 .addGroup(gesCli_IngresoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gesCli_btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gesCli_btnGuardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         Spn_GesCl.addTab("Ingreso", gesCli_Ingreso);
@@ -484,9 +483,7 @@ public class Programa extends javax.swing.JFrame {
         );
         PnlGestClienLayout.setVerticalGroup(
             PnlGestClienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PnlGestClienLayout.createSequentialGroup()
-                .addComponent(Spn_GesCl, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Spn_GesCl)
         );
 
         jTabbedPane1.addTab("Gestion de Clientes", PnlGestClien);
@@ -517,7 +514,7 @@ public class Programa extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1021, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabel33)
@@ -537,7 +534,7 @@ public class Programa extends javax.swing.JFrame {
                     .addComponent(btnConsultarCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         Spn_GesCl1.addTab("Visualizar", jPanel1);
@@ -586,25 +583,21 @@ public class Programa extends javax.swing.JFrame {
                 .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
                         .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel12))
-                        .addGap(21, 21, 21)
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txnombreproducto)
-                            .addComponent(txserie, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txmarca, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
+                            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
+                                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel12))
+                                .addGap(24, 24, 24)
+                                .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txserie, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txnombreproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addComponent(txmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addGap(31, 31, 31)
-                                .addComponent(txprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(txcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gesCli_Ingreso1Layout.createSequentialGroup()
+                        .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, gesCli_Ingreso1Layout.createSequentialGroup()
                                 .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
@@ -613,11 +606,20 @@ public class Programa extends javax.swing.JFrame {
                                 .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
                                         .addComponent(jcbtipoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txdescrip))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
-                        .addGap(79, 79, 79))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel20)
+                                        .addGap(79, 79, 79))
+                                    .addComponent(txdescrip)))
+                            .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
+                                    .addComponent(jLabel21)
+                                    .addGap(35, 35, 35)
+                                    .addComponent(txprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(654, 654, 654))))
             .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
                 .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gesCli_Ingreso1Layout.createSequentialGroup()
@@ -628,7 +630,7 @@ public class Programa extends javax.swing.JFrame {
                         .addComponent(gesCli_btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
                         .addComponent(btnnuevocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(526, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gesCli_Ingreso1Layout.setVerticalGroup(
             gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -671,7 +673,7 @@ public class Programa extends javax.swing.JFrame {
                 .addGroup(gesCli_Ingreso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gesCli_btnGuardar2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnnuevocuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         Spn_GesCl1.addTab("Crear", gesCli_Ingreso1);
@@ -731,7 +733,7 @@ public class Programa extends javax.swing.JFrame {
                                 .addComponent(txtbuscarmodiiii, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 489, Short.MAX_VALUE))
+                        .addGap(0, 541, Short.MAX_VALUE))
                     .addGroup(gesCli_Mod1Layout.createSequentialGroup()
                         .addGroup(gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
@@ -753,7 +755,7 @@ public class Programa extends javax.swing.JFrame {
             .addGroup(gesCli_Mod1Layout.createSequentialGroup()
                 .addGap(158, 158, 158)
                 .addComponent(btnguardamodificado, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 665, Short.MAX_VALUE))
+                .addGap(0, 717, Short.MAX_VALUE))
         );
         gesCli_Mod1Layout.setVerticalGroup(
             gesCli_Mod1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -794,7 +796,7 @@ public class Programa extends javax.swing.JFrame {
                     .addComponent(txpreciocam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnguardamodificado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         Spn_GesCl1.addTab("Modificar", gesCli_Mod1);
@@ -844,15 +846,6 @@ public class Programa extends javax.swing.JFrame {
         PnlRegMov2Layout.setHorizontalGroup(
             PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlRegMov2Layout.createSequentialGroup()
-                .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jLabel34))
-                    .addGroup(PnlRegMov2Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PnlRegMov2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PnlRegMov2Layout.createSequentialGroup()
@@ -866,7 +859,7 @@ public class Programa extends javax.swing.JFrame {
                                     .addComponent(txpreciocompra, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 637, Short.MAX_VALUE)
                         .addComponent(jLabel35)
                         .addGap(136, 136, 136))
                     .addGroup(PnlRegMov2Layout.createSequentialGroup()
@@ -881,7 +874,13 @@ public class Programa extends javax.swing.JFrame {
                             .addComponent(txnumseriecompra)
                             .addComponent(txcicliente, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                             .addComponent(txnumficha))
+                        .addGap(112, 112, 112)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(PnlRegMov2Layout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(jLabel34)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PnlRegMov2Layout.setVerticalGroup(
             PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -905,8 +904,9 @@ public class Programa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbtipocompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(25, 25, 25)
+                    .addComponent(jLabel25)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
                 .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
                     .addComponent(txtcantidadcompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -916,55 +916,30 @@ public class Programa extends javax.swing.JFrame {
                     .addGroup(PnlRegMov2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txpreciocompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Registro de Compra", PnlRegMov2);
 
         lbl_con_movi.setText("N- Serie:");
 
-        Tabla_movimientos_consulta.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_compras_consulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Fecha", "N- Ficha", "N- Serie", "Cliente", "Cantidad", "Tipo", "Precio"
+                "Codigo", "Fecha", "N- Ficha", "Cantidad", "Tipo", "Precio"
             }
         ));
-        jScrollPane2.setViewportView(Tabla_movimientos_consulta);
-
-        jLabel36.setText("Busqueda por Fechas:");
-
-        jLabel37.setText("De:");
-
-        jLabel38.setText("Hasta:");
-
-        jLabel39.setText("Busqueda por las ulimas compras:");
-
-        jLabel40.setText("Numeros de Compras:");
-
-        txtnumero_mov.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnumero_movActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(Tabla_compras_consulta);
 
         btnConsultasMovimientos.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btnConsultasMovimientos.setText("Consultar");
-
-        cmbanio_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003" }));
-
-        cmbmes_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", " " }));
-
-        cmbdia_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", " " }));
-
-        cmb2anio_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003" }));
-
-        cmb2mes_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre", " " }));
-
-        cmb2dia_mov.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        btnConsultasMovimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultasMovimientosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PnlConMovLayout = new javax.swing.GroupLayout(PnlConMov);
         PnlConMov.setLayout(PnlConMovLayout);
@@ -974,80 +949,31 @@ public class Programa extends javax.swing.JFrame {
                 .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PnlConMovLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PnlConMovLayout.createSequentialGroup()
-                                .addComponent(lbl_con_movi)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtcuenta_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PnlConMovLayout.createSequentialGroup()
-                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel36)
-                                    .addGroup(PnlConMovLayout.createSequentialGroup()
-                                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel37)
-                                            .addComponent(jLabel38))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cmb2anio_mov, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cmbanio_mov, 0, 71, Short.MAX_VALUE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(PnlConMovLayout.createSequentialGroup()
-                                        .addComponent(cmbmes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmbdia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PnlConMovLayout.createSequentialGroup()
-                                        .addComponent(cmb2mes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmb2dia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(71, 71, 71)
-                                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel39)
-                                    .addGroup(PnlConMovLayout.createSequentialGroup()
-                                        .addComponent(jLabel40)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtnumero_mov, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbl_con_movi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtConsCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PnlConMovLayout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         PnlConMovLayout.setVerticalGroup(
             PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PnlConMovLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_con_movi)
-                    .addComponent(txtcuenta_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PnlConMovLayout.createSequentialGroup()
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(24, 24, 24)
                         .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel37)
-                            .addComponent(cmbanio_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbmes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbdia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(cmb2anio_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb2mes_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb2dia_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_con_movi)
+                            .addComponent(txtConsCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(PnlConMovLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel39)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PnlConMovLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel40)
-                            .addComponent(txtnumero_mov, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(btnConsultasMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Consulta de Compras", PnlConMov);
@@ -1060,6 +986,11 @@ public class Programa extends javax.swing.JFrame {
 
         lblHora.setText("--:--");
 
+        jLabel36.setFont(new java.awt.Font("Gill Sans MT", 1, 36)); // NOI18N
+        jLabel36.setText("Control de Ventas - Álmacenes Paul");
+
+        jLabel38.setText("Solange Pico - Victoria Espinosa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1068,28 +999,37 @@ public class Programa extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(fecha1)
-                .addGap(18, 18, 18)
-                .addComponent(lblFecha)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel45)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblHora)
-                .addGap(329, 329, 329))
+                .addGap(141, 141, 141)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fecha1)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblFecha)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel45)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblHora))
+                    .addComponent(jLabel38))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fecha1)
-                    .addComponent(lblFecha)
-                    .addComponent(jLabel45)
-                    .addComponent(lblHora))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fecha1)
+                            .addComponent(lblFecha)
+                            .addComponent(jLabel45)
+                            .addComponent(lblHora))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel38))
+                    .addComponent(jLabel36))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1))
         );
 
         pack();
@@ -1273,30 +1213,24 @@ public class Programa extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String t = "";
-        /*if (cmbtipo_mov.getSelectedItem().equals("Debito")) {
-            t = "DEB";
-        } else {
-            t = "CRE";
-        }*/
         String monto = txtcantidadcompra.getText();
-        //float mon = Float.parseFloat(monto);
-        if (txnumseriecompra.getText().equals("") || cmbtipocompra.getSelectedItem().equals("") || txtcantidadcompra.getText().equals("") ||  txcicliente.getText().equals("")) {
+        float mon = Float.parseFloat(monto);
+        if (txnumficha.getText().equals("") || txnumseriecompra.equals("") || txcicliente.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Uno o mas campos vacios");
         } else {
-            String mon = null;
-            if (Float.parseFloat(mon) > 0) {
+            if (mon > 0)
+            {
                 String respuesta = con.buscarProducto(txnumseriecompra.getText());
                 System.out.println("Respuesta: " + respuesta);
                 if (respuesta.equals(txnumseriecompra.getText())) {
                     try {
-                        con.IngresoProducto(txnumficha.getText(), txcicliente.getText(), txnumseriecompra.getText(), cmbtipocompra.getSelectedItem().toString(), Double.parseDouble(txtcantidadcompra.getText()), Float.parseFloat(txpreciocompra.getText()), fecha + " " + hora);
+                        con.IngresoCompra(txnumficha.getText(), txcicliente.getText(), txnumseriecompra.getText(), cmbtipocompra.getSelectedItem().toString(), fecha + " " + hora, mon, Float.parseFloat(txpreciocompra.getText()), con.buscarCantidadProducto(txnumseriecompra.getText()));
                     } catch (SQLException ex) {
                         Logger.getLogger(Programa.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    recargar();
+                    //recargarMovimiento();
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "La cuenta no existe");
+                    JOptionPane.showMessageDialog(rootPane, "El producto no existe");
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "El valor debe ser mayor a cero");
@@ -1305,13 +1239,103 @@ public class Programa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtnumero_movActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumero_movActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnumero_movActionPerformed
-
     private void txciclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txciclienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txciclienteActionPerformed
+
+    private void btnConsultasMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasMovimientosActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) Tabla_compras_consulta.getModel();
+        ArrayList<Compra> moviss = new ArrayList<Compra>();
+        String i = "";
+        if (txtConsCompra.getText().equals("")) 
+        {
+            try {
+                vaciarMovimiento();
+                moviss = con.busmovimientoTotal();
+                for (Compra m : moviss) {
+                    Object[] fila = new Object[6];
+                    fila[0] = m.getCodigoCompra();
+                    fila[1] = m.getFecha();
+                    fila[2] = m.getNumFicha();
+                    fila[3] = m.getCantidadCompra();
+                    fila[4] = m.getTipoCompra();
+                    fila[5] = m.getPrecioTotal();
+                    model.addRow(fila);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Programa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } /*else 
+        {
+            if(txtnumero_mov.getText().equals("")&& txtConsCompra.equals("")&& ! txDesde.getText().equals("")&& ! txtHasta.getText().equals(""))
+           {
+               System.out.println("Se consultara fecha");
+           }
+           else
+              if(!txtnumero_mov.getText().equals("")&&txtConsCompra.getText().equals("") && txDesde.getText().equals("")&&txtHasta.getText().equals(""))
+            try 
+            {
+                moviss = con.busmovimientoN(Integer.parseInt(txtnumero_mov.getText()));
+                vaciarMovimiento();
+                for (Movimiento m : moviss) 
+                {
+                    Object[] fila = new Object[5];
+                    fila[0] = m.getFecha();
+                    fila[1] = m.getCod_movi();
+                    fila[2] = m.getTipo();
+                    fila[3] = m.getMonto();
+                    fila[4] = m.getSaldo();
+                    model.addRow(fila);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           else
+           {
+               if (txtnumero_mov.getText().equals("")&& !txtConsCompra.getText().equals("")&& txDesde.getText().equals("")&&txtHasta.getText().equals("") ) 
+               try 
+                 {
+                    moviss = con.busmovimiento(Integer.parseInt(txtConsCompra.getText()),2);      
+                    vaciarMovimiento();
+                    for (Movimiento m : moviss) 
+                    {
+                        Object[] fila = new Object[5];
+                        fila[0] = m.getFecha();
+                        fila[1] = m.getCod_movi();
+                        fila[2] = m.getTipo();
+                        fila[3] = m.getMonto();
+                        fila[4] = m.getSaldo();
+                        model.addRow(fila);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               else
+               {
+                   if (!txtConsCompra.getText().equals("")&&!txtnumero_mov.getText().equals("") && txDesde.getText().equals("")&& txtHasta.getText().equals("") ) 
+                   {
+                       try 
+                       {       
+                            moviss = con.busmovimientoPorN(Integer.parseInt(txtConsCompra.getText()), Integer.parseInt(txtnumero_mov.getText()));
+                            vaciarMovimiento();
+                            for (Movimiento m : moviss) 
+                            {
+                                Object[] fila = new Object[5];
+                                fila[0] = m.getFecha();
+                                fila[1] = m.getCod_movi();
+                                fila[2] = m.getTipo();
+                                fila[3] = m.getMonto();
+                                fila[4] = m.getSaldo();
+                                model.addRow(fila);
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                   }
+               }
+           }*/
+    }//GEN-LAST:event_btnConsultasMovimientosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1355,20 +1379,14 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JPanel PnlRegMov2;
     private javax.swing.JTabbedPane Spn_GesCl;
     private javax.swing.JTabbedPane Spn_GesCl1;
+    private javax.swing.JTable Tabla_compras_consulta;
     private javax.swing.JTable Tabla_cuentas_consulta;
-    private javax.swing.JTable Tabla_movimientos_consulta;
     private javax.swing.JButton btnConsultarCuentas;
     private javax.swing.JButton btnConsultasMovimientos;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnguardamodificado;
     private javax.swing.JButton btnnuevocuenta;
     public javax.swing.JTable c;
-    private javax.swing.JComboBox<String> cmb2anio_mov;
-    private javax.swing.JComboBox<String> cmb2dia_mov;
-    private javax.swing.JComboBox<String> cmb2mes_mov;
-    private javax.swing.JComboBox<String> cmbanio_mov;
-    private javax.swing.JComboBox<String> cmbdia_mov;
-    private javax.swing.JComboBox<String> cmbmes_mov;
     private javax.swing.JComboBox<String> cmbtipocompra;
     private javax.swing.JLabel fecha1;
     private javax.swing.JPanel gesCli_Ingreso;
@@ -1421,11 +1439,8 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -1460,10 +1475,9 @@ public class Programa extends javax.swing.JFrame {
     private javax.swing.JTextField txpreciocam;
     private javax.swing.JTextField txpreciocompra;
     private javax.swing.JTextField txserie;
+    private javax.swing.JTextField txtConsCompra;
     private javax.swing.JTextField txtbuscarmodiiii;
     private javax.swing.JTextField txtbuscarserie;
     private javax.swing.JTextField txtcantidadcompra;
-    private javax.swing.JComboBox<String> txtcuenta_mov;
-    private javax.swing.JTextField txtnumero_mov;
     // End of variables declaration//GEN-END:variables
 }

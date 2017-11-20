@@ -194,9 +194,43 @@ public class ConexionMySql {
         return val;
     }
 
-    public void IngresoProducto(String numficha, String cliente, String numserie, String tipo, float cantidadre, float preciototal, float mon, String fecha) throws SQLException {
+    public void ActCantidad(String cod, float ncantidad) {
+        Connection reg = conexionmySQL();
+        try {
+            PreparedStatement sentencia = reg.prepareStatement("UPDATE PRODUCTO SET PRO_CANTIDAD= ? WHERE PRO_CODIGO= ?");
+            sentencia.setFloat(1, ncantidad);
+            sentencia.setString(2, cod);
+            sentencia.execute();
+            sentencia.close();
+            System.out.println("Se ha modificado: el saldo");
+        } catch (SQLException error) {
+            System.out.println("Existe un ERROR: " + error);
+        }
+    }
+    
+    public float buscarCantidadProducto(String serie) {
+        Connection reg = conexionmySQL();
+        float cantidad = 0;
+        try {
+            String sql1 = "select PRO_CANTIDAD FROM PRODUCTO where PRO_CODIGO = '" + serie + "'";
+            PreparedStatement pst1 = reg.prepareStatement(sql1);
+            ResultSet resul1 = pst1.executeQuery();
+            while (resul1.next()) {
+                cantidad = resul1.getFloat(1);
+                System.out.println("Se recibio: " + cantidad);
+            }
+        } catch (SQLException error) {
+            System.out.println("Existe un ERROR: " + error);
+        }
+        return cantidad;
+    }
+    
+    public void IngresoCompra(String numficha, String cicliente, String serie, String tipo, String fecha, float cantidad, float stock, float precio) throws SQLException {
         int numRegistros = 0;
         int ultimoRegistro = 0;
+        /*if (tipo.equals("DEB")) {
+            monto = monto * -1;
+        }*/
         Connection reg = conexionmySQL();
         Statement sentenciaSQL = reg.createStatement();
         try {
@@ -215,22 +249,23 @@ public class ConexionMySql {
             }
             System.out.println("Ultimo regirtros = " + ultimoRegistro);
             //SELECCIONO LAS SENTENCIAS DE SQL--------------
-            float ncantidad = op.transaccion(cantidadre, mon);
+            float ncantidad = op.transaccion(cantidad, stock);
             if (ncantidad != -1) {
 
-                PreparedStatement sentencia = reg.prepareStatement("INSERT INTO COMPRA VALUES (?,?,?,?,?,?,?)");
-                sentencia.setFloat(7, preciototal);
-                sentencia.setFloat(6, cantidadre);
+                PreparedStatement sentencia = reg.prepareStatement("INSERT INTO COMPRA VALUES (?,?,?,?,?,?,?,?)");
+                sentencia.setString(8, fecha);
+                sentencia.setFloat(7, precio);
+                sentencia.setFloat(6, ncantidad);
                 sentencia.setString(5, tipo);
-                sentencia.setString(4, numserie);
-                sentencia.setString(3, cliente);
-                sentencia.setString(2, numficha);
+                sentencia.setString(4, numficha);
+                sentencia.setString(3, serie);
+                sentencia.setString(2, cicliente);
                 sentencia.setInt(1, ultimoRegistro + 1);
                 int res = sentencia.executeUpdate();
 
                 if (res > 0) {
                     JOptionPane.showMessageDialog(null, "OK, DATOS GUARDADOS");
-                    //ActSaldo(cod_cuenta, nsaldo);
+                    ActCantidad(serie, ncantidad);
                 } else {
                     JOptionPane.showMessageDialog(null, "ERROR, DATOS FALLIDOS");
                 }
@@ -272,14 +307,14 @@ public class ConexionMySql {
         String sql1, sql2, cod_mov = "", cod_serie = "", tipo_mov = "", fecha = "", monto = "", saldo = "";
         String ans = "No existe registro";
         try {
-            sql1 = "select * FROM PRODUCTO where PRO_SERIE = '" + serie + "'";
+            sql1 = "select * FROM PRODUCTO where PRO_CODIGO = '" + serie + "'";
             PreparedStatement pst1 = reg.prepareStatement(sql1);
             ResultSet resul1 = pst1.executeQuery();
 
             while (resul1.next()) {
-                cod_serie = resul1.getString(1);
-                ans = cod_serie;
-                System.out.println("Se recibio: " + cod_serie);
+                serie = resul1.getString(1);
+                ans = serie;
+                System.out.println("Se recibio: " + serie);
             }
         } catch (SQLException error) {
             System.out.println("Existe un ERROR: " + error);
@@ -478,31 +513,7 @@ public class ConexionMySql {
         }
         return info2;
     }
-/*
-    public ArrayList datos3(String cod_cuenta, int tipo) throws SQLException {
-        ArrayList<Cuenta> info = new ArrayList<Cuenta>();
-        Statement sentenciaSQL;
-        sentenciaSQL = con.createStatement();
-        try {
-            ResultSet p = sentenciaSQL.executeQuery("select * from cuenta WHERE cod_cuenta= '" + cod_cuenta + "'  order by cod_cuenta");
-            if (p.next() == false) {
-            } else {
-                do {
-                    Cuenta c = new Cuenta();
-                    c.setCodigo(p.getInt("COD_CUENTA"));
-                    c.setCi(p.getString("CEDULA"));
-                    c.setTipo(p.getString("TIPO"));
-                    c.setSaldo(p.getFloat("SALDO"));
-                    c.setEstado(p.getString("ESTADO"));
-                    info.add(c);
-                } while (p.next());
-            }
-        } catch (SQLException error) {
-            System.out.println("No existe esa info prro :'v" + error);
-        }
-        return info;
-    }
-*/
+    
     public void cambiarProducto(String ced, String nombre, String marca, String descrip, Double cantidad, float precio) throws SQLException {
 
         Connection reg = conexionmySQL();
@@ -518,40 +529,27 @@ public class ConexionMySql {
             Logger.getLogger(ConexionMySql.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-/*
-    public void ActSaldo(String cod_cuenta, float nsaldo) {
-        Connection reg = conexionmySQL();
-        try {
-            PreparedStatement sentencia = reg.prepareStatement("UPDATE CUENTA SET saldo= ? WHERE cod_cuenta= ?");
-            sentencia.setFloat(1, nsaldo);
-            sentencia.setString(2, cod_cuenta);
-            sentencia.execute();
-            sentencia.close();
-            System.out.println("Se ha modificado: el saldo");
-        } catch (SQLException error) {
-            System.out.println("Existe un ERROR: " + error);
-        }
-    }
-/*
-    public ArrayList busmovimiento(long cod_cuenta, int tipo) throws SQLException
+
+    public ArrayList busmovimientoTotal() throws SQLException
     {
-        ArrayList<Movimiento> ress = new ArrayList<Movimiento>();
+        ArrayList<Compra> ress = new ArrayList<Compra>();
         Statement sentenciaSQL;
         sentenciaSQL = con.createStatement();
         try {
-            ResultSet p = sentenciaSQL.executeQuery("SELECT FECHA, COD_MOVIMIENTO, TIPO_MOV, MONTO, SALDO_MOV FROM movimiento where COD_CUENTA = '" + cod_cuenta + "' ORDER BY COD_MOVIMIENTO");
+            ResultSet p = sentenciaSQL.executeQuery("SELECT COM_FECHA, COM_NUMFICHA, _COM_CODIGO, COM_TIPO, COM_CANTIDAD, COM_PRECIOTOTAL FROM COMPRA ORDER BY _COM_CODIGO");
             if (p.next() == false) 
             {
                 JOptionPane.showMessageDialog(null,"El numero de cuenta no existe" );
             } else 
             {
                 do {
-                    Movimiento v = new Movimiento();
-                    v.setFecha(p.getString("FECHA"));
-                    v.setCod_movi(p.getInt("COD_MOVIMIENTO"));
-                    v.setTipo(p.getString("TIPO_MOV"));
-                    v.setMonto(p.getFloat("MONTO"));
-                    v.setSaldo(p.getFloat("SALDO_MOV"));
+                    Compra v = new Compra();
+                    v.setFecha(p.getString("COM_FECHA"));
+                    v.setNumFicha(p.getDouble("COM_NUMFICHA"));
+                    v.setCodigoCompra(p.getDouble("_COM_CODIGO"));
+                    v.setTipoCompra(p.getString("COM_TIPO"));
+                    v.setCantidadCompra(p.getDouble("COM_CANTIDAD"));
+                    v.setPrecioTotal(p.getFloat("COM_PRECIOTOTAL"));
                     ress.add(v);
                 } while (p.next());
             }
@@ -560,96 +558,4 @@ public class ConexionMySql {
         }
         return ress;
     }
-    
-    
-    public ArrayList busmovimientoN(int n) throws SQLException
-    {
-        ArrayList<Movimiento> ress = new ArrayList<Movimiento>();
-        Statement sentenciaSQL;
-        sentenciaSQL = con.createStatement();
-        try {
-            ResultSet p = sentenciaSQL.executeQuery("SELECT FECHA, COD_MOVIMIENTO, TIPO_MOV, MONTO, SALDO_MOV FROM movimiento ORDER BY COD_MOVIMIENTO limit "+n);
-            if (p.next() == false) 
-            {
-                JOptionPane.showMessageDialog(null,"El numero de cuenta no existe" );
-            } else 
-            {
-                do {
-                    Movimiento v = new Movimiento();
-                    v.setFecha(p.getString("FECHA"));
-                    v.setCod_movi(p.getInt("COD_MOVIMIENTO"));
-                    v.setTipo(p.getString("TIPO_MOV"));
-                    v.setMonto(p.getFloat("MONTO"));
-                    v.setSaldo(p.getFloat("SALDO_MOV"));
-                    ress.add(v);
-                } while (p.next());
-            }
-        } catch (SQLException error) {
-            System.out.println("No existe esa info prro :'v" + error);
-        }
-        return ress;
-    }
-    
-    
-    
-        public ArrayList busmovimientoPorN(int cod_cuenta, int n) throws SQLException
-    {
-        ArrayList<Movimiento> ress = new ArrayList<Movimiento>();
-        Statement sentenciaSQL;
-        sentenciaSQL = con.createStatement();
-        try {
-            ResultSet p = sentenciaSQL.executeQuery("SELECT FECHA, COD_MOVIMIENTO, TIPO_MOV, MONTO, SALDO_MOV FROM movimiento where COD_CUENTA = '" + cod_cuenta + "' ORDER BY COD_MOVIMIENTO limit "+n);
-            if (p.next() == false) 
-            {
-                JOptionPane.showMessageDialog(null,"El numero de cuenta no existe" );
-            } else 
-            {
-                do {
-                    Movimiento v = new Movimiento();
-                    v.setFecha(p.getString("FECHA"));
-                    v.setCod_movi(p.getInt("COD_MOVIMIENTO"));
-                    v.setTipo(p.getString("TIPO_MOV"));
-                    v.setMonto(p.getFloat("MONTO"));
-                    v.setSaldo(p.getFloat("SALDO_MOV"));
-                    ress.add(v);
-                } while (p.next());
-            }
-        } catch (SQLException error) {
-            System.out.println("No existe esa info prro :'v" + error);
-        }
-        return ress;
-    }
-    
-    
-    
-    public ArrayList busmovimientoTotal() throws SQLException 
-    {
-        ArrayList<Movimiento> ress = new ArrayList<Movimiento>();
-        Statement sentenciaSQL;
-        sentenciaSQL = con.createStatement();
-        try {
-            ResultSet p = sentenciaSQL.executeQuery("SELECT FECHA, COD_MOVIMIENTO, TIPO_MOV, MONTO, SALDO_MOV FROM movimiento ORDER BY COD_MOVIMIENTO+0");
-            if (p.next() == false) 
-            {
-                System.out.println("ver aqui");
-            } else 
-            {
-                do {
-                    Movimiento v = new Movimiento();
-                    v.setFecha(p.getString("FECHA"));
-                    v.setCod_movi(p.getInt("COD_MOVIMIENTO"));
-                    v.setTipo(p.getString("TIPO_MOV"));
-                    v.setMonto(p.getFloat("MONTO"));
-                    v.setSaldo(p.getFloat("SALDO_MOV"));
-                    ress.add(v);
-                } while (p.next());
-            }
-        } catch (SQLException error) {
-            System.out.println("No existe esa info prro :'v" + error);
-        }
-        return ress;
-    }
-    
-    */
-    
 }
